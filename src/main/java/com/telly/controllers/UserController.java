@@ -60,6 +60,23 @@ public class UserController {
 
 	}
 
+	@RequestMapping(value = "/reservebook", method = RequestMethod.POST)
+	public String createReserveBook(@Validated(FormValidationGroup.class) Reserve reserve, BindingResult result, Principal principal) {
+
+		if (result.hasErrors()) {
+			return "reservebus";
+		}
+
+		String username = principal.getName();
+		reserve.getUser().setUsername(username);
+
+		reserveService.reserve(reserve);
+
+
+		return "home";
+
+	}
+
 	
 
 }
