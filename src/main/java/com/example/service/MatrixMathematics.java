@@ -75,7 +75,7 @@ public class MatrixMathematics {
 	 * @return
 	 * @throws NoSquareException
 	 */
-	public static Matrix cofactor(Matrix matrix) throws NoSquareException {
+	public static Matrix cofactor(Matrix matrix) throws NoSquareException  {
 		Matrix mat = new Matrix(matrix.getNrows(), matrix.getNcols());
 		for (int i=0;i<matrix.getNrows();i++) {
 			for (int j=0; j<matrix.getNcols();j++) {
@@ -115,7 +115,13 @@ public class MatrixMathematics {
 	 * @throws NoSquareException
 	 */
 	public static Matrix inverse(Matrix matrix) throws NoSquareException {
-		return (transpose(cofactor(matrix)).multiplyByConstant(1.0/determinant(matrix)));
+                double d = determinant(matrix);
+		if (d != 0){
+			return (transpose(cofactor(matrix)).multiplyByConstant(1.0/d));
+		}
+		else {
+			return 0 ;
+		}
 	}
 
 
