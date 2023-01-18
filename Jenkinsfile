@@ -7,7 +7,7 @@ pipeline {
       junit 'build/test-results/test/*.xml' 
       cucumber buildStatus: 'UNSTABLE',
       reportTitle: 'My report',
-      ileIncludePattern: 'target/report.json',
+      fileIncludePattern: 'target/report.json'
       }
     }
     
