@@ -120,7 +120,7 @@ public class MatrixMathematics {
 			return (transpose(cofactor(matrix)).multiplyByConstant(1.0/d));
 		}
 		else {
-			return 0 ;
+			return null ;
 		}
 	}
 
