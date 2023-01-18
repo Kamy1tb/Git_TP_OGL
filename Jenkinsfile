@@ -4,7 +4,10 @@ pipeline {
     stage("test"){
       steps{
       bat 'gradlew test'
-      junit 'build/test-results/test/*.xml'    
+      junit 'build/test-results/test/*.xml' 
+      cucumber buildStatus: 'UNSTABLE',
+      reportTitle: 'My report',
+      ileIncludePattern: '**/*.json',
       }
     }
     
