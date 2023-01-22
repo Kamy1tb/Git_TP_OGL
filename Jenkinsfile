@@ -29,8 +29,8 @@ pipeline {
         }
      stage("Build") {
             steps {
-                bat 'gradle build'
-                bat 'gradle javadoc'
+                bat 'gradlew build'
+                bat 'gradlew javadoc'
                 archiveArtifacts 'build/libs/*.jar'
                 archiveArtifacts 'build/docs/'
             }
