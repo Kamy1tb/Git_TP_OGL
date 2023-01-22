@@ -27,9 +27,12 @@ pipeline {
                 }
             }
         }
-    stage('Build') { 
+     stage("Build") {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                bat 'gradle build'
+                bat 'gradle javadoc'
+                archiveArtifacts 'build/libs/*.jar'
+                archiveArtifacts 'build/docs/'
             }
         }
         
